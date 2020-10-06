@@ -1,8 +1,52 @@
 .header {
-    background-color: aqua;
+    padding: 20px 0px; 
+    background-color: #9987b7;
 }
 
-.col- {
- outline: 2px solid black;
+body {
+    padding: 0px 11px;
 }
 
+img{
+    width: 50%;
+    height: auto;
+}
+
+.searchArea{
+    
+    background-color: #eeeeee;
+    padding-top: 20px;
+    padding-bottom: 300px;
+}
+
+#search{
+    border: none;
+    width: 100%;
+    padding-bottom: 12px;
+}
+
+#submit{
+    border: none;
+    background: blue;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    border-radius: 10%;
+    margin-top: 18px;
+    box-shadow: 0px 0px 5px black;
+}
+
+.main{
+    padding: 0px 16px;
+}
+
+.pageTitle{
+    color: white;
+    
+    font-size: 60px;
+}
+
+.recipeBookTitle{
+    font-size: 24px;
+    font-weight: 300;
+}
