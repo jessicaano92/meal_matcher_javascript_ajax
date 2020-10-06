@@ -42,17 +42,29 @@
 
 
 
+
     GORDON RAMSAY FEELING LUCKY BUTTON
 
     1. Event listener for click 
 
     2. The click will call the API and give one random recipe from the API I believe we can use random API call 
-    
+
         * brand new function calling new API
 
     3. If we have time and its easy we should add an audio file saying "what are you an Idiot sandwich?!" everytime you click the button 
 
     4. After the initial click, the same functions listed above will be done.-->
+
+
+    Jared and Jessica - CSS/HTML to start (the make it pretty squad)
+
+    event listeners - josephino
+
+    local storage/submits/arrays - tessa
+
+    initial AJAX - benni 
+
+
 
 
     ## Application Requirements
