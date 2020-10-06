@@ -4,15 +4,30 @@
     
     1.
      On click of submit in search bar we will need to grab value of search bar and use that value to submit for request to the API.
+     * AJAX
+     * On click
+
 
     2. 
     Cards will need to populate with img and name of certain foods that pertain to what ever ingredient searched grabbed from AJAX
+    *for loop - all info, * empty()
+    *create cards dynamically, appending, assign correct column width to class
 
     3. 
     An event listener will need to be on the cards for when they are clicked to open up a hidden div that will be dynamically populated with information from the API. 
+    * event listener - add a class to all cards
+    * change display from hidden to block to switch cards 
+    
+    
 
     4. 
     There will need to be event listeners on this page for a close button and an add button, close will close the page and return to the cards, add will add the recipe to the recipe book
+
+    * Event listener for close
+    * Event listener for add recipe 
+        this is going to create buttons below the search bar in the recipe book
+
+     4b. Local Storage will store information in the recipe book
 
     5. 
     Like weather app, page will only change when a new item is searched or an item from the recipe book is selected
@@ -21,8 +36,10 @@
 
 
         - there should also be an event listener for an X that will delete an item from recipe book AKA delete from local storage 
+            *might be able to create a class that references both cancel buttons
 
-    6. Local Storage will store information in the recipe book
+   
+
 
 
 
@@ -30,11 +47,24 @@
 
     1. Event listener for click 
 
-    2. The click will call the API and give six random Recipes from the API I believe we can use Math.Random and it should be pretty easy 
+    2. The click will call the API and give one random recipe from the API I believe we can use random API call 
+
+        * brand new function calling new API
 
     3. If we have time and its easy we should add an audio file saying "what are you an Idiot sandwich?!" everytime you click the button 
 
     4. After the initial click, the same functions listed above will be done.-->
+
+
+    Jared and Jessica - CSS/HTML to start (the make it pretty squad)
+
+    event listeners - josephino
+
+    local storage/submits/arrays - tessa
+
+    initial AJAX - benni 
+
+
 
 
     ## Application Requirements
@@ -68,4 +98,4 @@ Use this [project presentation template](https://docs.google.com/presentation/d/
 
 * Directions for Future Development
 
-* Links to the deployed application and the GitHub repository
+* Links to the deployed application and the GitHub repositoryg
