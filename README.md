@@ -98,4 +98,4 @@ Use this [project presentation template](https://docs.google.com/presentation/d/
 
 * Directions for Future Development
 
-* Links to the deployed application and the GitHub repository
+* Links to the deployed application and the GitHub repositoryg
