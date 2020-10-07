@@ -42,6 +42,32 @@ function createRecipeBook(){
   }
 }
 
+function recipePage(recipeValue) {
+  //on click of card expand page wait til card is made for this 
+  var recipeQueryURL = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + recipeValue
+
+  $.ajax({
+    url: recipeQueryURL,
+    method: "GET"
+  }).then(function(response){
+    console.log(response)
+
+    $("#recipe-title").text()//whatever recipe title is
+    $(".ingredients").text()//whatever ingredient is in object
+    $(".recipe").text()//whatever recipe is
+
+    var addButton = ("<button>")
+    addButton.text("Add to Recipe Book").addClass("recipeBtn") //find bootstrap classes for button
+
+    var exitButton = ("<button>")
+    exitButton.text("X").addClass("exitBtn") //find bootstrap classes for button 
+
+    //append to class 
+
+
+  })
+}
+
 $("#submit").on("click", function(e){
   e.preventDefault();
   var ingredientSearch = $("#search").val()
