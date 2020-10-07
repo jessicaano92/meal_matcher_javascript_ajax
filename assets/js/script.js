@@ -28,6 +28,7 @@ function searchResults(ingredientSearch){
           var mainchoice = response.meals[i].strMeal;
           console.log(mainchoice);
           var cardheader = $("<h1>")
+          cardheader.addClass("recipe-title")
           cardheader.text(mainchoice)
           carddiv.append(cardheader);
 
@@ -51,6 +52,7 @@ function searchResults(ingredientSearch){
             var mainchoice = response.meals[i].strMeal;
             console.log(mainchoice);
             var cardheader = $("<h1>")
+            cardheader.addClass("recipe-title")
             cardheader.text(mainchoice)
             carddiv.append(cardheader);
   
