@@ -7,11 +7,23 @@ function searchResults(ingredientSearch){
       method: "GET"
   }).then(function(response){
       console.log(JSON.stringify(response));
+      $(".top3").empty();
+      $(".bottom3").empty();
       for(var i=0; i < 6; i++){
 
+          if (i < 3){
           var carddiv= $("<div>");
           carddiv.addClass("card-div");
-          $(".cards").append(carddiv);
+          carddiv.addClass("col-3")
+          carddiv.css("width", "18rem")
+          $(".top3").append(carddiv);
+
+          var choiceImg = response.meals[i].strMealThumb;
+          console.log(choiceImg); 
+          var cardImg = $("<img>")
+          cardImg.attr("src", choiceImg)
+          cardImg.addClass("card-img-top")
+          carddiv.append(cardImg);     
 
           var mainchoice = response.meals[i].strMeal;
           console.log(mainchoice);
@@ -19,14 +31,32 @@ function searchResults(ingredientSearch){
           cardheader.text(mainchoice)
           carddiv.append(cardheader);
 
-          var recipeValue = response.meals[i].strMealThumb ;
-          console.log(recipeValue);
+          var recipeValue = response.meals[i].idMeal ;
+          console.log(recipeValue);}
 
-          var choiceImg = response.meals[i].idMeal;
-          console.log(choiceImg); 
-          var cardImg = $("<img>")
-          cardImg.attr("src", choiceImg)
-          carddiv.append(cardImg);     
+          if (i > 2){
+            var carddiv= $("<div>");
+            carddiv.addClass("card-div");
+            carddiv.addClass("col-3")
+            carddiv.css("width", "18rem")
+            $(".bottom3").append(carddiv);
+  
+            var choiceImg = response.meals[i].strMealThumb;
+            console.log(choiceImg); 
+            var cardImg = $("<img>")
+            cardImg.attr("src", choiceImg)
+            cardImg.addClass("card-img-top")
+            carddiv.append(cardImg);     
+  
+            var mainchoice = response.meals[i].strMeal;
+            console.log(mainchoice);
+            var cardheader = $("<h1>")
+            cardheader.text(mainchoice)
+            carddiv.append(cardheader);
+  
+            var recipeValue = response.meals[i].idMeal ;
+            console.log(recipeValue);
+          }
       }
   });
 }
