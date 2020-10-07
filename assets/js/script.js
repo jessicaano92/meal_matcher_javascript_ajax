@@ -115,8 +115,15 @@ function recipePage(recipeValue) {
   })
 }
 
+
+//event listeners 
+
 $("#submit").on("click", function(e){
   e.preventDefault();
   var ingredientSearch = $("#search").val()
   searchResults(ingredientSearch)
+})
+
+$(".cards").on("click",".card-div", function(){
+  console.log("click")
 })
