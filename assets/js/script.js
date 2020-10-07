@@ -1,4 +1,4 @@
-const key = "1";
+var key = "1";
 
 function searchResults(ingredientSearch){
   var queryURL = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + ingredientSearch;
@@ -25,8 +25,10 @@ if (recipeBookArrStorage !== null){
 }
 
 function addRecipe(){
-  var recipeName = ($this).val()
-  recipeBookArr.push(recipeName);
+  var recipeName = $(this).val()
+  var recipeValue = $(this).val()
+  var recipeAddToArray = (recipeName, recipeValue)
+  recipeBookArr.push(recipeAddToArray);
   localStorage.setItem("recipeBookArrStorage", JSON.stringify(recipeBookArr))
   $(".recipe-book").empty();
   createRecipeBook()
