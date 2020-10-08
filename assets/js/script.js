@@ -124,6 +124,6 @@ $("#submit").on("click", function(e){
   searchResults(ingredientSearch)
 })
 
-$(".cards").on("click", "card-div", function(){
+$(".cards").on("click", ".card-div", function(){
   console.log("click");
 })
