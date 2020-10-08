@@ -101,6 +101,7 @@ function createRecipeBook(){
     for (var i=0; i<recipeBookArr.length; i++){
       var newRecipeButton = $("<button>");
       newRecipeButton.text(recipeBookArr[i].recipeName)
+      newRecipeButton.addClass("recipeHistoryBtn")
       newRecipeButton.attr("data-name", recipeBookArr[i].recipeValue)
       $(".recipe-book").append(newRecipeButton)
     }
