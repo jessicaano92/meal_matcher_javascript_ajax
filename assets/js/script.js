@@ -130,7 +130,7 @@ function recipePage(recipeValue) {
 
     var addButton = $("<button>")
     addButton.text("Add to Recipe Book")
-    
+    addButton.addClass("recipeBtn")
     $(".recipeButton").append(addButton)
      //find bootstrap classes for button
 

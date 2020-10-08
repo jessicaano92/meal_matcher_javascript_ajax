@@ -97,7 +97,40 @@ img{
     display: none;
 }
 
+.recipe-image{
+    border-radius: 3%;
+    box-shadow: 0px 0px 5px #c1c1c1;
+}
 
+.ingredients{
+    font-size: 27px;
+}
+
+.recipe-title{
+    font-size: 41px;
+    font-weight: 400;
+    border-bottom: 5px solid #696969;
+}
+
+.recipeButton{
+    font-size: 23px;
+}
+
+.recipeBtn{
+    border: none;
+    height: 49px;
+    background: #9987b7;
+    color: white;
+    padding: 0px 17px;
+    margin-top: 11px;
+}
+
+.recipe {
+    
+    font-size: 20px;
+    width: 84%;
+
+}
 @media only screen and (max-width: 600px){
 #search{
         border: none;
