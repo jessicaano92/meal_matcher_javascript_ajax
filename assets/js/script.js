@@ -129,14 +129,7 @@ function recipePage(recipeValue) {
 
     $(".recipe-image").attr("src", response.meals[0].strMealThumb)
 
-    var addButton = $("<button>")
-    addButton.text("Add to Recipe Book")
-
-    addButton.addClass("recipeBtn")
-
-    addButton.addClass("add-to-book")
-
-    $(".recipeButton").append(addButton)
+  
 
     $(".add-to-book").on("click", function(){
       console.log(recipeTitle)
@@ -145,8 +138,13 @@ function recipePage(recipeValue) {
     })
      //find bootstrap classes for button
 
-    // var exitButton = ("<button>")
-    // exitButton.text("X").addClass("exitBtn") //find bootstrap classes for button 
+
+     $(".exitBtn").on("click", function(e){
+      e.preventDefault()
+      $(".cards").css("display", "block") //all of the cards are hidden 
+      $(".hidden").css("display","none") //.hidden div will be displayed
+    
+    })
 
     //append to class 
 
@@ -164,6 +162,8 @@ $("#submit").on("click", function(e){
   searchResults(ingredientSearch)
   
 })
+
+
 
 createRecipeBook()
 
