@@ -128,8 +128,11 @@ function recipePage(recipeValue) {
 
     $(".recipe-image").attr("src", response.meals[0].strMealThumb)
 
-    var addButton = ("<button>")
-    addButton.text("Add to Recipe Book").addClass("recipeBtn") //find bootstrap classes for button
+    var addButton = $("<button>")
+    addButton.text("Add to Recipe Book")
+    
+    $(".recipeButton").append(addButton)
+     //find bootstrap classes for button
 
     // var exitButton = ("<button>")
     // exitButton.text("X").addClass("exitBtn") //find bootstrap classes for button 
