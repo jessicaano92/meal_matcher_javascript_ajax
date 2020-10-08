@@ -87,11 +87,10 @@ if (recipeBookArrStorage !== null){
   recipeBookArr = JSON.parse(recipeBookArrStorage)
 }
 
-function addRecipe(){
-  var recipeName = $(this).val()
-  var recipeValue = $(this).val()
-  var recipeAddToArray = (recipeName, recipeValue)
+function addRecipe(recipeName, recipeValue){
+  var recipeAddToArray = {recipeName, recipeValue}
   recipeBookArr.push(recipeAddToArray);
+  console.log(recipeBookArr)
   localStorage.setItem("recipeBookArrStorage", JSON.stringify(recipeBookArr))
   $(".recipe-book").empty();
   createRecipeBook()
@@ -101,7 +100,8 @@ function createRecipeBook(){
   if (recipeBookArr){
     for (var i=0; i<recipeBookArr.length; i++){
       var newRecipeButton = $("<button>");
-      newRecipeButton.text(recipeBookArr[i])
+      newRecipeButton.text(recipeBookArr[i].recipeName)
+      newRecipeButton.attr("data-name", recipeBookArr[i].recipeValue)
       $(".recipe-book").append(newRecipeButton)
     }
   }
@@ -119,7 +119,8 @@ function recipePage(recipeValue) {
   }).then(function(response){
     console.log(response)
 
-    $("#recipe-title").text(response.meals[0].strMeal)//recipe title
+    var recipeTitle = response.meals[0].strMeal
+    $("#recipe-title").text(recipeTitle)//recipe title
     
 
     $(".ingredients").text("Ingredients: " + response.meals[0].strIngredient1 + ", " + response.meals[0].strIngredient2 + ", " + response.meals[0].strIngredient3 + ", " + response.meals[0].strIngredient4 + ", " + response.meals[0].strIngredient5 + ", " + response.meals[0].strIngredient6 + ", " + response.meals[0].strIngredient7 + ", " + response.meals[0].strIngredient8 + ", " + response.meals[0].strIngredient9 + ", " + response.meals[0].strIngredient10 ) //ingredients
@@ -130,8 +131,18 @@ function recipePage(recipeValue) {
 
     var addButton = $("<button>")
     addButton.text("Add to Recipe Book")
+
     addButton.addClass("recipeBtn")
+
+    addButton.addClass("add-to-book")
+
     $(".recipeButton").append(addButton)
+
+    $(".add-to-book").on("click", function(){
+      console.log(recipeTitle)
+      console.log(recipeValue)
+      addRecipe(recipeTitle, recipeValue)
+    })
      //find bootstrap classes for button
 
     // var exitButton = ("<button>")
@@ -154,15 +165,19 @@ $("#submit").on("click", function(e){
   
 })
 
+createRecipeBook()
 
 
-$(".cards").on("click", ".card-div", function(){
-  console.log("click");
+
+// $(".cards").on("click", ".card-div", function(){
+//   console.log("click");
  
-}) 
-$('.search').keypress(function(e){
-  if(e.which == 13){
-      $('.submit').click();
-      }
-  })
+// }) 
+// $('.search').keypress(function(e){
+//   if(e.which == 13){
+//       $('.submit').click();
+//       }
+//   })
+
+
 
