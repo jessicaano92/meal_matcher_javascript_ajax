@@ -131,7 +131,11 @@ function recipePage(recipeValue) {
 
     var addButton = $("<button>")
     addButton.text("Add to Recipe Book")
+
+    addButton.addClass("recipeBtn")
+
     addButton.addClass("add-to-book")
+
     $(".recipeButton").append(addButton)
 
     $(".add-to-book").on("click", function(){
