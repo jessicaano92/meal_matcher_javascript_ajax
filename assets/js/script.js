@@ -127,16 +127,16 @@ function recipePage(recipeValue) {
     $(".ingredients").text("Ingredients: " + response.meals[0].strIngredient1 + ", " + response.meals[0].strIngredient2 + ", " + response.meals[0].strIngredient3 + ", " + response.meals[0].strIngredient4 + ", " + response.meals[0].strIngredient5 + ", " + response.meals[0].strIngredient6 + ", " + response.meals[0].strIngredient7 + ", " + response.meals[0].strIngredient8 + ", " + response.meals[0].strIngredient9 + ", " + response.meals[0].strIngredient10 ) //ingredients
     
     $(".recipe").text(response.meals[0].strInstructions)//recipe
-
+    $(".add-to-book").attr("data-name", recipeValue)
     $(".recipe-image").attr("src", response.meals[0].strMealThumb)
 
   
 
-    $(".add-to-book").on("click", function(){
-      console.log(recipeTitle)
-      console.log(recipeValue)
-      addRecipe(recipeTitle, recipeValue)
-    })
+    // $(".add-to-book").on("click", function(){
+    //   console.log($(this).recipeTitle)
+    //   console.log(recipeValue)
+    //   addRecipe(recipeTitle, recipeValue)
+    // })
      //find bootstrap classes for button
 
 
@@ -164,21 +164,20 @@ $("#submit").on("click", function(e){
   
 })
 
+//Also allows the user to hit enter
+$('.search').keypress(function(e){
+  if(e.which == 13){
+      $('.submit').click();
+      }
+  })
+
 
 
 createRecipeBook()
 
 
-
-// $(".cards").on("click", ".card-div", function(){
-//   console.log("click");
- 
-// }) 
-// $('.search').keypress(function(e){
-//   if(e.which == 13){
-//       $('.submit').click();
-//       }
-//   })
-
-
-
+$(".add-to-book").on("click", function(){
+  var recipeTitle = $("#recipe-title").text()
+  var recipeValue = $(this).attr("data-name")
+  addRecipe(recipeTitle, recipeValue)
+})
