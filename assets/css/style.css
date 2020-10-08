@@ -1,6 +1,7 @@
 .header {
     padding: 20px 0px; 
     background-color: #9987b7;
+    box-shadow: 0px 1px 4px #696969;
 }
 
 body {
@@ -17,23 +18,27 @@ img{
     background-color: #eeeeee;
     padding-top: 20px;
     padding-bottom: 300px;
+    box-shadow: 0px 0px 5px #c1c1c1;
 }
 
 #search{
     border: none;
     width: 100%;
     padding-bottom: 12px;
+    padding: 6px 0px 7px 6px;
+    font-size: 24px;
+    font-weight: 100;
 }
 
 #submit{
     border: none;
-    background: blue;
+    background: #9987b7;
     padding: 10px;
     color: white;
     font-weight: bold;
     border-radius: 10%;
     margin-top: 18px;
-    box-shadow: 0px 0px 5px black;
+    box-shadow: 0px 0px 3px #696969;
 }
 
 .main{
@@ -42,26 +47,34 @@ img{
 
 .pageTitle{
     color: white;
-    
     font-size: 60px;
+    font-weight: 400;
 }
 
 .recipeBookTitle{
-    font-size: 24px;
-    font-weight: 300;
+    font-size: 30px;
+    /* font-weight: 400; */
+    padding-top: 5px;
+    border-bottom: 5px solid #9987b7;
+    padding-bottom: 10px;
+    padding-top: 12px;
 }
 
 .recipe-title {
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 400;
     padding-top: 5px;
+    border-bottom: 5px solid #9987b7;
+    padding-bottom: 19px;
+    padding-top: 12px;
 }
 
 .card-div {
     padding-bottom: 20px;
-    box-shadow: 0px 0px 5px #333333;
+    box-shadow: 0px 0px 5px #c1c1c1;
     margin: 0px 20px;
-    border-radius: 5%;
+    border-radius: 2%;
+    
 }
 
 .top3 {
@@ -70,5 +83,6 @@ img{
 
 .card-img-top {
     margin-top: 15px;
-    border-radius: 8%;
+    border-radius: 3%;
+    box-shadow: 0px 0px 3px #9987b7;
 }

@@ -122,8 +122,16 @@ $("#submit").on("click", function(e){
   e.preventDefault();
   var ingredientSearch = $("#search").val()
   searchResults(ingredientSearch)
+  
 })
+
 
 $(".cards").on("click", ".card-div", function(){
   console.log("click");
-})
+ 
+}) 
+$('.search').keypress(function(e){
+  if(e.which == 13){
+      $('.submit').click();
+      }
+  })
