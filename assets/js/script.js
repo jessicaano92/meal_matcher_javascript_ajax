@@ -120,13 +120,16 @@ function recipePage(recipeValue) {
     console.log(response)
 
     $("#recipe-title").text(response.meals[0].strMeal)//recipe title
-    var ingredients = response.meals[0].strIngredient1
-    $(".ingredients").text(ingredients)
-    //whatever ingredient is in object
-    // $(".recipe").text()//whatever recipe is
+    
 
-    // var addButton = ("<button>")
-    // addButton.text("Add to Recipe Book").addClass("recipeBtn") //find bootstrap classes for button
+    $(".ingredients").text("Ingredients: " + response.meals[0].strIngredient1 + ", " + response.meals[0].strIngredient2 + ", " + response.meals[0].strIngredient3 + ", " + response.meals[0].strIngredient4 + ", " + response.meals[0].strIngredient5 + ", " + response.meals[0].strIngredient6 + ", " + response.meals[0].strIngredient7 + ", " + response.meals[0].strIngredient8 + ", " + response.meals[0].strIngredient9 + ", " + response.meals[0].strIngredient10 ) //ingredients
+    
+    $(".recipe").text(response.meals[0].strInstructions)//recipe
+
+    $(".recipe-image").attr("src", response.meals[0].strMealThumb)
+
+    var addButton = ("<button>")
+    addButton.text("Add to Recipe Book").addClass("recipeBtn") //find bootstrap classes for button
 
     // var exitButton = ("<button>")
     // exitButton.text("X").addClass("exitBtn") //find bootstrap classes for button 
