@@ -4,6 +4,12 @@
     box-shadow: 0px 1px 4px #696969;
 }
 
+
+.h2, h2 {
+    font-size: 2rem;
+    text-align: center;
+}
+
 body {
     padding: 0px 11px;
 }
@@ -47,8 +53,10 @@ img{
 
 .pageTitle{
     color: white;
-    font-size: 60px;
+    font-size: 50px;
     font-weight: 400;
+    font-family: 'Cousine', monospace;
+    
 }
 
 .recipeBookTitle {
@@ -100,16 +108,25 @@ img{
 .recipe-image{
     border-radius: 3%;
     box-shadow: 0px 0px 5px #c1c1c1;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    
 }
 
 .ingredients{
-    font-size: 27px;
+    font-size: 20px;
+    font-family: 'Bad Script', cursive;
+    text-align: center;
+    padding: 20px;
 }
 
 .recipe-title{
-    font-size: 41px;
+    font-size: 25px;
     font-weight: 400;
     border-bottom: 5px solid #696969;
+    font-family: 'Special Elite', cursive;
 }
 
 .recipeButton{
@@ -129,6 +146,8 @@ img{
     
     font-size: 20px;
     width: 84%;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
 
 }
 
