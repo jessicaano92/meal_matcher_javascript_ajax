@@ -182,16 +182,10 @@ $(".randomRecipe").on("click", function(e){
     method: "GET"
   }).then(function(response){
     console.log(response)
-    var recipeTitle = response.meals[0].strMeal
-   
-    console.log(recipeTitle)
-    $(".hidden").css("display","block")
-    $("#recipe-title").text(recipeTitle)//recipe title
-    $(".ingredients").text("Ingredients: " + response.meals[0].strIngredient1 + ", " + response.meals[0].strIngredient2 + ", " + response.meals[0].strIngredient3 + ", " + response.meals[0].strIngredient4 + ", " + response.meals[0].strIngredient5 + ", " + response.meals[0].strIngredient6 + ", " + response.meals[0].strIngredient7 + ", " + response.meals[0].strIngredient8 + ", " + response.meals[0].strIngredient9 + ", " + response.meals[0].strIngredient10 ) 
-    $(".recipe-image").attr("src", response.meals[0].strMealThumb)
-    $(".recipe").text(response.meals[0].strInstructions)//recipe
-    $(".add-to-book").attr("data-name", recipeValue)
-    $(".recipe-image").attr("src", response.meals[0].strMealThumb)
+    var recipeValue = response.meals[0].idMeal
+    $(".cards").css("display", "none")        //will hide all of the cards
+    $(".hidden").css("display","block")       //will show the recipe page
+    recipePage(recipeValue)
   })
 })
 
