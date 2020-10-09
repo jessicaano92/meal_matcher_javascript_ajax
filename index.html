@@ -9,8 +9,16 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
   <link rel="stylesheet" href="assets/css/style.css" />
+
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!--icons-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
   
 </head>
 
@@ -21,12 +29,12 @@
   
   <container class="container-fluid">
     <div class="row main">
-      <div class="col-3 searchArea">
+      <div class="col-sm-12 col-md-12 col-lg-3 searchArea">
         <h1 class="recipeBookTitle display-1">Recipe Book</h1>
-        <button class="randomRecipe">Random Recipe</button>
-        <input id="search" />
-        <button id="submit">Submit</button>
-        <button class="clear">Clear List</button>
+        <button class="randomRecipe waves-effect">Random Recipe</button>
+        <input placeholder="Search An Ingredient" id="search" type="text" class="validate">
+        <button id="submit" class= "waves-effect">Submit</button>
+        <button class="clear waves-effect">Clear Recipe Book</button>
         <div class="recipe-book"></div>
       </div>
 
@@ -36,16 +44,22 @@
       </div>
 
 
-      <div class="hidden col-9">
+      <div class="hidden xs-col-12 md-col-9">
         <div class="row">
-          <div class="col-4">
+          <div class="xs-col-12 md-col-4">
             <img class="recipe-image" />
             <div class="ingredients display-1"></div>
           </div>
-          <div class="col-8">
+          <div class="xs-col-12 md-col-8 text-center">
             <h2 id="recipe-title"></h2>
-            <button class="display-1 recipeButton recipeBtn add-to-book">Add to Recipe Book</button>
-            <button class="exitBtn">X</button>
+            <div class="buttonsMove">
+              <span class= "purple-text text- lighten-2">Recipe Book</span>
+              <a class="btn-floating btn waves-effect waves-light add-to-book  purple lighten-2"><i class = "material-icons">add</i></a>
+              
+              <a class="exitBtn waves-effect waves-light btn deep-orange darken-1">X</a>
+              
+            </div>
+           
             <div class="recipe"></div>
           </div>
 
@@ -57,6 +71,8 @@
   </container>
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="assets/js/script.js"></script>
 
 </body>
