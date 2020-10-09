@@ -104,17 +104,20 @@ img{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 75%;
 }
 
 .ingredients{
-    font-size: 27px;
+    font-size: 18px;
+    padding-top: 19px;
+    width: 94%;
+    padding-left: 49px;
 }
 
 .recipe-title{
-    font-size: 41px;
+    font-size: 22px;
     font-weight: 400;
-    border-bottom: 5px solid #696969;
+    border-bottom: 5px solid #9987b7;
 }
 
 .recipeButton{
@@ -134,6 +137,8 @@ img{
     
     font-size: 20px;
     width: 84%;
+    padding-top: 20px;
+    font-weight: 300;
 
 }
 
@@ -197,7 +202,9 @@ img{
         margin-left: 10px;
     }
 
-
+    .card-div{
+        margin: 16px 0px !important;
+    }
 
     .card-img-top{
         width: 92%;
@@ -211,17 +218,7 @@ img{
     box-shadow: none;
     }
 
-    .recipe-title{
-        width: 86%;
-    display: block;
-    margin: 0 auto;
-    }
-
-    .card-div{
-        width: 100% !important;
-    margin: 16px 46px;
-    }
-
+    
     .recipeBookTitle{
         width: 95%;
     padding-left: 0%;
@@ -232,5 +229,17 @@ img{
 
     .header{
         padding: 0px 0px;
+    }
+
+    .recipe{
+        font-size: 14px;
+    width: 60%;
+    padding-top: 20px;
+    font-weight: 300;
+    margin-left: 60px;
+    }
+
+    .ingredients{
+        width: 80%;
     }
 }

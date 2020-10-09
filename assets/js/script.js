@@ -9,9 +9,11 @@ function searchResults(ingredientSearch){ //creates cards dynamically references
       $(".top3").empty();
       $(".bottom3").empty();
       for(var i=0; i < 6; i++){
+
+    
           var carddiv= $("<div>"); //creating new div
-          carddiv.addClass("card-div"); //add class
-          carddiv.addClass("col-3") //add class
+          carddiv.addClass("card-div "); //add class
+          carddiv.addClass("col-sm-12 col-md-12 col-lg-3") //add class
           carddiv.css("width", "18rem") //styling 
           if (i < 3){
           $(".top3").append(carddiv); //putting into HTML
@@ -39,10 +41,13 @@ function searchResults(ingredientSearch){ //creates cards dynamically references
       }
       //click for cards 
       $(".cards").on("click", ".card-div", function(){
+        
         $(".cards").css("display", "none") //all of the cards are hidden 
         $(".hidden").css("display","block") //.hidden div will be displayed
         var thisRecipeValue = $(this).attr("data-name") //always be equal to what was clicked
         recipePage(thisRecipeValue)
+        
+        
       })
   });
 }
@@ -119,8 +124,11 @@ function recipePage(recipeValue) {
       myObj[key] = value
     }
     var objstring = JSON.stringify(myObj).replace(/"/g,'').replace(/,/g,"\n")
-    var ingredient_lst = "ingredients: \n " + objstring
+    var ingredient_lst = "ingredeints: \n " + objstring
     console.log(ingredient_lst)
+
+
+    
 
     $(".ingredients").text( ingredient_lst ) //ingredients
     
@@ -135,6 +143,7 @@ function recipePage(recipeValue) {
     })
   })
 }
+
 
 //event listeners 
 
@@ -168,8 +177,6 @@ $(".clear").on("click", function(){
 
 $(".randomRecipe").on("click", function(e){
 
-
-
   var recipeQueryURL = "https://www.themealdb.com/api/json/v1/1/random.php"
   $(".cards").css("display", "none")
   $.ajax({
@@ -187,21 +194,14 @@ $(".randomRecipe").on("click", function(e){
     $(".recipe").text(response.meals[0].strInstructions)//recipe
     $(".add-to-book").attr("data-name", recipeValue)
     $(".recipe-image").attr("src", response.meals[0].strMealThumb)
-
-   
   })
 })
-
 
 $(".recipe-book").on("click", ".recipeHistoryBtn" , function () {
   var recipeValue = $(this).attr("data-name");
   $(".cards").css("display", "none")        //will hide all of the cards
   $(".hidden").css("display","block")       //will show the recipe page
   recipePage(recipeValue);
-
-})
-
 })
 
 createRecipeBook()
-
