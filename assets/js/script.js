@@ -17,9 +17,11 @@ function searchResults(ingredientSearch){ //creates cards dynamically references
       $(".top3").empty();
       $(".bottom3").empty();
       for(var i=0; i < 6; i++){
+
+    
           var carddiv= $("<div>"); //creating new div
-          carddiv.addClass("card-div"); //add class
-          carddiv.addClass("col-3") //add class
+          carddiv.addClass("card-div "); //add class
+          carddiv.addClass("col-sm-12 col-md-12 col-lg-3") //add class
           carddiv.css("width", "18rem") //styling 
           if (i < 3){
           $(".top3").append(carddiv); //putting into HTML
@@ -47,10 +49,13 @@ function searchResults(ingredientSearch){ //creates cards dynamically references
       }
       //click for cards 
       $(".cards").on("click", ".card-div", function(){
+        
         $(".cards").css("display", "none") //all of the cards are hidden 
         $(".hidden").css("display","block") //.hidden div will be displayed
         var thisRecipeValue = $(this).attr("data-name") //always be equal to what was clicked
         recipePage(thisRecipeValue)
+        
+        
       })
   });
 }
@@ -124,8 +129,11 @@ function recipePage(recipeValue) {
       myObj[key] = value
     }
     var objstring = JSON.stringify(myObj).replace(/"/g,'').replace(/,/g,"\n")
-    var ingredient_lst = "ingredients: \n " + objstring
+    var ingredient_lst = "ingredeints: \n " + objstring
     console.log(ingredient_lst)
+
+
+    
 
     $(".ingredients").text( ingredient_lst ) //ingredients
     
@@ -141,7 +149,9 @@ function recipePage(recipeValue) {
   })
 }
 
+
 //Event Listener for user searching and hitting "Submit"
+
 $("#submit").on("click", function(e){
   e.preventDefault();
   var ingredientSearch = $("#search").val() //will pick up what you type into the search bar
@@ -173,8 +183,12 @@ $(".clear").on("click", function(){
 })
 
 
+
+
+
 //Event Listener for clicking on "Random Recipe"
 $(".randomRecipe").on("click", function(e){
+
   var recipeQueryURL = "https://www.themealdb.com/api/json/v1/1/random.php"
   $(".cards").css("display", "none")
   $.ajax({
@@ -182,6 +196,9 @@ $(".randomRecipe").on("click", function(e){
     method: "GET"
   }).then(function(response){
     console.log(response)
+
+ 
+
     var recipeValue = response.meals[0].idMeal
     $(".cards").css("display", "none")        //will hide all of the cards
     $(".hidden").css("display","block")       //will show the recipe page
@@ -190,6 +207,7 @@ $(".randomRecipe").on("click", function(e){
 })
 
 //Event Listener for clicking on a recipe in the Recipe Book
+
 $(".recipe-book").on("click", ".recipeHistoryBtn" , function () {
   var recipeValue = $(this).attr("data-name");
   $(".cards").css("display", "none")        //will hide all of the cards
@@ -197,5 +215,8 @@ $(".recipe-book").on("click", ".recipeHistoryBtn" , function () {
   recipePage(recipeValue);
 })
 
+
+
 //Loads all recipe book items on page load
 createRecipeBook()
+
