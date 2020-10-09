@@ -9,8 +9,6 @@ function searchResults(ingredientSearch){ //creates cards dynamically references
       $(".top3").empty();
       $(".bottom3").empty();
       for(var i=0; i < 6; i++){
-
-    
           var carddiv= $("<div>"); //creating new div
           carddiv.addClass("card-div"); //add class
           carddiv.addClass("col-3") //add class
@@ -41,13 +39,10 @@ function searchResults(ingredientSearch){ //creates cards dynamically references
       }
       //click for cards 
       $(".cards").on("click", ".card-div", function(){
-        
         $(".cards").css("display", "none") //all of the cards are hidden 
         $(".hidden").css("display","block") //.hidden div will be displayed
         var thisRecipeValue = $(this).attr("data-name") //always be equal to what was clicked
         recipePage(thisRecipeValue)
-        
-        
       })
   });
 }
@@ -124,11 +119,8 @@ function recipePage(recipeValue) {
       myObj[key] = value
     }
     var objstring = JSON.stringify(myObj).replace(/"/g,'').replace(/,/g,"\n")
-    var ingredient_lst = "ingredeints: \n " + objstring
+    var ingredient_lst = "ingredients: \n " + objstring
     console.log(ingredient_lst)
-
-
-    
 
     $(".ingredients").text( ingredient_lst ) //ingredients
     
@@ -143,7 +135,6 @@ function recipePage(recipeValue) {
     })
   })
 }
-
 
 //event listeners 
 
@@ -178,11 +169,8 @@ $(".clear").on("click", function(){
 createRecipeBook()
 
 $(".recipe-book").on("click", ".recipeHistoryBtn" , function () {
-    
-    var recipeValue = $(this).attr("data-name");
-    $(".cards").css("display", "none")        //will hide all of the cards
-    $(".hidden").css("display","block")       //will show the recipe page
-    recipePage(recipeValue);
-
-
+  var recipeValue = $(this).attr("data-name");
+  $(".cards").css("display", "none")        //will hide all of the cards
+  $(".hidden").css("display","block")       //will show the recipe page
+  recipePage(recipeValue);
 })
