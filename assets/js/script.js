@@ -69,6 +69,7 @@ function searchResults(ingredientSearch){ //creates cards dynamically references
       }
       //click for cards 
       $(".cards").on("click", ".card-div", function(){
+        
         $(".cards").css("display", "none") //all of the cards are hidden 
         $(".hidden").css("display","block") //.hidden div will be displayed
         var thisRecipeValue = $(this).attr("data-name") //always be equal to what was clicked
