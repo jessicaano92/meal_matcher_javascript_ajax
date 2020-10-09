@@ -176,3 +176,13 @@ $(".clear").on("click", function(){
 })
 
 createRecipeBook()
+
+$(".recipe-book").on("click", ".recipeHistoryBtn" , function () {
+    
+    var recipeValue = $(this).attr("data-name");
+    $(".cards").css("display", "none")        //will hide all of the cards
+    $(".hidden").css("display","block")       //will show the recipe page
+    recipePage(recipeValue);
+
+
+})
