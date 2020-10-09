@@ -253,14 +253,12 @@ img{
 
     .recipe{
         font-size: 14px;
-    width: 60%;
-    padding-top: 20px;
-    font-weight: 300;
-    margin-left: 60px;
+        width: 100%;
+        padding-top: 20px;
     }
 
     .ingredients{
-        width: 80%;
+        width: 100%;
     }
 
 }
