@@ -58,11 +58,20 @@ function searchResults(ingredientSearch){ //creates cards dynamically references
 //Function for Adding a recipe to the Recipe Book
 function addRecipe(recipeName, recipeValue){
   var recipeAddToArray = {recipeName, recipeValue}
+  var okToAdd = true;
+  for (var i=0; i <recipeBookArr.length; i++){
+    var currentObj = recipeBookArr[i]
+    if (currentObj.recipeName === recipeName){
+      okToAdd = false;
+    }
+  }
+  if (okToAdd){
   recipeBookArr.push(recipeAddToArray);
   console.log(recipeBookArr)
   localStorage.setItem("recipeBookArrStorage", JSON.stringify(recipeBookArr))
   $(".recipe-book").empty();
   createRecipeBook()
+  }
 }
 
 //Function for creating the Recipe book
@@ -93,51 +102,63 @@ function recipePage(recipeValue) {
     
     var recipeTitle = response.meals[0].strMeal
     $("#recipe-title").text(recipeTitle)//recipe title
-
-    var ingredientArr = [];
-    var measureArr = [];
-    for(i=1; i<20;i++){
-      var ingredientStr = String('strIngredient'+i)
-      var measureStr = String('strMeasure'+i)
-      var newIngredient = response.meals[0]
-      JSON.stringify(newIngredient,function(key,value){
-        if (key == ingredientStr){
-          ingredientArr.push(value)
-        }else if(key == measureStr){
-          measureArr.push(value)
-        }
-      })
-      
-      var ingredient = newIngredient[ingredientStr]
-      ingredientArr.push(ingredient)
-      var measurement = newIngredient[measureStr]
-      measureArr.push(measurement)
-      
-    }
-    console.log("newIngredient" + JSON.stringify(newIngredient))
-    console.log("ingredients array: " + ingredientArr)
-    console.log("mesaurement arry: " + measureArr )
-    let myObj = {};
-    for (let i=0; i<ingredientArr.length;i++){
-      let key = ingredientArr[i];
-      let value = measureArr[i];
-      myObj[key] = value
-    }
-    var objstring = JSON.stringify(myObj).replace(/"/g,'').replace(/,/g,"\n")
-    var ingredient_lst = "ingredients: \n " + objstring
-    console.log(ingredient_lst)
-
-    $(".ingredients").text( ingredient_lst ) //ingredients
-    
     $(".recipe").text(response.meals[0].strInstructions)//recipe
     $(".add-to-book").attr("data-name", recipeValue)
     $(".recipe-image").attr("src", response.meals[0].strMealThumb)
 
+    //Creating the ingredients array, Gary helped with this:
+      var newMealObj = {}
+      var newMealsArr = []
+      // Set all the basic properties
+      // newMealObj.id = response.meals[0].idMeal
+      // newMealObj.area = response.meals[0].strArea
+      // newMealObj.source = response.meals[0].strSource
+      // newMealObj.tags = response.meals[0].strTags
+      // newMealObj.youTube = response.meals[0].strYoutube
+      // newMealObj.drinkAlt = response.meals[0].strDrinkAlternate
+      // newMealObj.ins = response.meals[0].strInstructions
+      // newMealObj.meal = response.meals[0].strMeal
+      // newMealObj.thumb = response.meals[0].strMealThumb
+      newMealObj.ingredients = []
+      console.log(newMealObj)
+      var recipeObj
+      // Loop from 1 to 20 (for how many possible ingredients there are)
+      for(var i=1; i<=20; i++){
+        // There are two types of data: ingredients and measure
+        var props = ["Ingredient", "Measure"]
+        // Create a new object each time through to hold the recipe data
+        recipeObj = {}
+        // Loop through the two differet data types (Ingredients and Measures)
+        props.forEach( function(prop) {
+          var propName = "str" + prop + i
+          // If we have a value in the original object, we can add that info to our new recipe object
+          if( response.meals[0][propName] !== undefined && response.meals[0][propName].length > 0){
+            recipeObj[prop.toLowerCase()] = response.meals[0][propName]
+          }
+        })
+        // If the new recipe object has data, we can add it to our ingredients array
+        if( recipeObj.ingredient !== undefined ){
+          newMealObj.ingredients.push(recipeObj)
+        }
+      }
+      // We've now built the mealObj and can add it to the meals array
+      newMealsArr.push(newMealObj)
+      console.log(newMealsArr)
+
+      $(".ingredients").empty();
+      var ingredientHeader = $("<h2>").text("Ingredients")
+      $(".ingredients").append(ingredientHeader)
+      for (var i=0; i <newMealsArr[0].ingredients.length; i++){
+      var listIngredient = $("<li>").text(newMealsArr[0].ingredients[i].ingredient + ", " + newMealsArr[0].ingredients[i].measure)
+      $(".ingredients").append(listIngredient)
+      }
+    })
+
+    //Event Listener for closing the window
     $(".exitBtn").on("click", function(e){
       e.preventDefault()
       $(".cards").css("display", "block") //all of the cards are hidden 
       $(".hidden").css("display","none") //.hidden div will be displayed
-    })
   })
 }
 
@@ -171,7 +192,6 @@ $(".clear").on("click", function(){
  // remove buttons on click
  $(".recipeHistoryBtn").removeAttr("style").hide();
 })
-
 
 //Event Listener for clicking on "Random Recipe"
 $(".randomRecipe").on("click", function(e){
