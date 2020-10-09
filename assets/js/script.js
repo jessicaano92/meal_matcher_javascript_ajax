@@ -1,5 +1,3 @@
-var key = "1";
-
 function searchResults(ingredientSearch){ //creates cards dynamically references the API for image and title------
 
   var queryURL = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + ingredientSearch;
@@ -12,13 +10,16 @@ function searchResults(ingredientSearch){ //creates cards dynamically references
       $(".bottom3").empty();
       for(var i=0; i < 6; i++){
 
-          if (i < 3){
+    
           var carddiv= $("<div>"); //creating new div
           carddiv.addClass("card-div"); //add class
           carddiv.addClass("col-3") //add class
           carddiv.css("width", "18rem") //styling 
+          if (i < 3){
           $(".top3").append(carddiv); //putting into HTML
-
+          } else {
+            $(".bottom3").append(carddiv);
+          }
           var choiceImg = response.meals[i].strMealThumb; //web image 
           console.log(choiceImg); 
           var cardImg = $("<img>")
@@ -36,36 +37,7 @@ function searchResults(ingredientSearch){ //creates cards dynamically references
           var recipeValue = response.meals[i].idMeal ; //data-name
           console.log(recipeValue);
           carddiv.attr("data-name", recipeValue)
-        }
 
-          if (i > 2){
-            var carddiv= $("<div>");
-            carddiv.addClass("card-div");
-            carddiv.addClass("col-3")
-            carddiv.css("width", "18rem")
-            $(".bottom3").append(carddiv);
-  
-            var choiceImg = response.meals[i].strMealThumb;
-            console.log(choiceImg); 
-            var cardImg = $("<img>")
-            cardImg.attr("src", choiceImg)
-            cardImg.addClass("card-img-top")
-            carddiv.append(cardImg);     
-  
-            var mainchoice = response.meals[i].strMeal;
-            console.log(mainchoice);
-            var cardheader = $("<h1>")
-            cardheader.addClass("recipe-title")
-            cardheader.text(mainchoice)
-            carddiv.append(cardheader);
-  
-            var recipeValue = response.meals[i].idMeal ;
-            carddiv.attr("data-name", recipeValue)
-
-            
-          }
-
-          
       }
       //click for cards 
       $(".cards").on("click", ".card-div", function(){
@@ -78,8 +50,6 @@ function searchResults(ingredientSearch){ //creates cards dynamically references
       })
   });
 }
-//------------------------------------------------
-
 
 var recipeBookArr = [];
 var recipeBookArrStorage = localStorage.getItem("recipeBookArrStorage")
@@ -130,26 +100,11 @@ function recipePage(recipeValue) {
     $(".add-to-book").attr("data-name", recipeValue)
     $(".recipe-image").attr("src", response.meals[0].strMealThumb)
 
-  
-
-    // $(".add-to-book").on("click", function(){
-    //   console.log($(this).recipeTitle)
-    //   console.log(recipeValue)
-    //   addRecipe(recipeTitle, recipeValue)
-    // })
-     //find bootstrap classes for button
-
-
-     $(".exitBtn").on("click", function(e){
+    $(".exitBtn").on("click", function(e){
       e.preventDefault()
       $(".cards").css("display", "block") //all of the cards are hidden 
       $(".hidden").css("display","none") //.hidden div will be displayed
-    
     })
-
-    //append to class 
-
-
   })
 }
 
@@ -171,13 +126,10 @@ $('.search').keypress(function(e){
       }
   })
 
-
-
-createRecipeBook()
-
-
 $(".add-to-book").on("click", function(){
   var recipeTitle = $("#recipe-title").text()
   var recipeValue = $(this).attr("data-name")
   addRecipe(recipeTitle, recipeValue)
 })
+
+createRecipeBook()
