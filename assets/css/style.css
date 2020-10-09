@@ -4,6 +4,11 @@
     box-shadow: 0px 1px 4px #696969;
 }
 
+.h2, h2 {
+    font-family: 'Lora', serif;
+
+}
+
 body {
     padding: 0px 11px;
 }
@@ -50,6 +55,7 @@ img{
     color: white;
     font-size: 60px;
     font-weight: 400;
+    font-family: 'Cinzel', serif;
 }
 
 .recipeBookTitle {
@@ -109,6 +115,7 @@ img{
 
 .ingredients{
     font-size: 27px;
+    font-family: 'Lora', serif;
 }
 
 .recipe-title{
