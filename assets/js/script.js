@@ -90,7 +90,7 @@ function recipePage(recipeValue) {
     method: "GET"
   }).then(function(response){
     console.log(response)
-
+    
     var recipeTitle = response.meals[0].strMeal
     $("#recipe-title").text(recipeTitle)//recipe title
 
@@ -175,14 +175,35 @@ $(".clear").on("click", function(){
  $(".recipeHistoryBtn").removeAttr("style").hide();
 })
 
-createRecipeBook()
+$(".randomRecipe").on("click", function(e){
+
+  var recipeQueryURL = "https://www.themealdb.com/api/json/v1/1/random.php"
+  $(".cards").css("display", "none")
+  $.ajax({
+    url: recipeQueryURL,
+    method: "GET"
+  }).then(function(response){
+    console.log(response)
+    var recipeTitle = response.meals[0].strMeal
+   
+    console.log(recipeTitle)
+    $(".hidden").css("display","block")
+    $("#recipe-title").text(recipeTitle)//recipe title
+    $(".ingredients").text("Ingredients: " + response.meals[0].strIngredient1 + ", " + response.meals[0].strIngredient2 + ", " + response.meals[0].strIngredient3 + ", " + response.meals[0].strIngredient4 + ", " + response.meals[0].strIngredient5 + ", " + response.meals[0].strIngredient6 + ", " + response.meals[0].strIngredient7 + ", " + response.meals[0].strIngredient8 + ", " + response.meals[0].strIngredient9 + ", " + response.meals[0].strIngredient10 ) 
+    $(".recipe-image").attr("src", response.meals[0].strMealThumb)
+    $(".recipe").text(response.meals[0].strInstructions)//recipe
+    $(".add-to-book").attr("data-name", recipeValue)
+    $(".recipe-image").attr("src", response.meals[0].strMealThumb)
+
+   
+  })
+})
 
 $(".recipe-book").on("click", ".recipeHistoryBtn" , function () {
-    
-    var recipeValue = $(this).attr("data-name");
-    $(".cards").css("display", "none")        //will hide all of the cards
-    $(".hidden").css("display","block")       //will show the recipe page
-    recipePage(recipeValue);
-
-
+  var recipeValue = $(this).attr("data-name");
+  $(".cards").css("display", "none")        //will hide all of the cards
+  $(".hidden").css("display","block")       //will show the recipe page
+  recipePage(recipeValue);
 })
+
+createRecipeBook()
