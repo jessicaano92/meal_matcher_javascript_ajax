@@ -158,8 +158,6 @@ img{
 }
 
 .randomRecipe{
-    
-    
     border: none;
     background-color: #696969;
     font-size: 18px;
@@ -167,7 +165,6 @@ img{
     border-radius: 9%;
     height: 41px;
     font-weight: 600;
-    
     margin-left: 9px;
     padding: 10;
 }
