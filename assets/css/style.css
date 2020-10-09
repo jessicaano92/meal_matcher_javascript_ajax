@@ -140,7 +140,7 @@ img{
 .recipeHistoryBtn{
     width: 96%;
     margin-top: 20px;
-    height: 40px;
+    height: auto;
     font-size: 24px;
     font-weight: 100;
     border: none;
