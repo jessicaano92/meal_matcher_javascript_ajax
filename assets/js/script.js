@@ -1,3 +1,11 @@
+//Declare Global Variables
+var recipeBookArr = [];
+var recipeBookArrStorage = localStorage.getItem("recipeBookArrStorage")
+if (recipeBookArrStorage !== null){
+  recipeBookArr = JSON.parse(recipeBookArrStorage)
+}
+
+//Function for Searching
 function searchResults(ingredientSearch){ //creates cards dynamically references the API for image and title------
 
   var queryURL = "https://www.themealdb.com/api/json/v1/1/filter.php?i=" + ingredientSearch;
@@ -47,12 +55,7 @@ function searchResults(ingredientSearch){ //creates cards dynamically references
   });
 }
 
-var recipeBookArr = [];
-var recipeBookArrStorage = localStorage.getItem("recipeBookArrStorage")
-if (recipeBookArrStorage !== null){
-  recipeBookArr = JSON.parse(recipeBookArrStorage)
-}
-
+//Function for Adding a recipe to the Recipe Book
 function addRecipe(recipeName, recipeValue){
   var recipeAddToArray = {recipeName, recipeValue}
   recipeBookArr.push(recipeAddToArray);
@@ -62,6 +65,7 @@ function addRecipe(recipeName, recipeValue){
   createRecipeBook()
 }
 
+//Function for creating the Recipe book
 function createRecipeBook(){
   if (recipeBookArr){
     for (var i=0; i<recipeBookArr.length; i++){
@@ -74,6 +78,7 @@ function createRecipeBook(){
   }
 }
 
+//Function for creating the recipe page
 function recipePage(recipeValue) {
   //populate new previously hidden div with info from this AJAX 
   var recipeQueryURL = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + recipeValue
@@ -136,14 +141,13 @@ function recipePage(recipeValue) {
   })
 }
 
-//event listeners 
-
-//user input submit
+//Event Listener for user searching and hitting "Submit"
 $("#submit").on("click", function(e){
   e.preventDefault();
   var ingredientSearch = $("#search").val() //will pick up what you type into the search bar
   searchResults(ingredientSearch)
-  
+  $(".cards").css("display", "block")        //will show all of the cards
+  $(".hidden").css("display","none")       //will hide the recipe page
 })
 
 //Also allows the user to hit enter
@@ -153,23 +157,24 @@ $('.search').keypress(function(e){
       }
   })
 
+//Event Listener for clicking on "Add to Recipe Book"
 $(".add-to-book").on("click", function(){
   var recipeTitle = $("#recipe-title").text()
   var recipeValue = $(this).attr("data-name")
   addRecipe(recipeTitle, recipeValue)
 })
 
-// clear storage button
+//Event Listener for clicking on "X"
 $(".clear").on("click", function(){
   localStorage.clear();
+  recipeBookArr = [];
  // remove buttons on click
  $(".recipeHistoryBtn").removeAttr("style").hide();
 })
 
+
+//Event Listener for clicking on "Random Recipe"
 $(".randomRecipe").on("click", function(e){
-
-
-
   var recipeQueryURL = "https://www.themealdb.com/api/json/v1/1/random.php"
   $(".cards").css("display", "none")
   $.ajax({
@@ -187,21 +192,16 @@ $(".randomRecipe").on("click", function(e){
     $(".recipe").text(response.meals[0].strInstructions)//recipe
     $(".add-to-book").attr("data-name", recipeValue)
     $(".recipe-image").attr("src", response.meals[0].strMealThumb)
-
-   
   })
 })
 
-
+//Event Listener for clicking on a recipe in the Recipe Book
 $(".recipe-book").on("click", ".recipeHistoryBtn" , function () {
   var recipeValue = $(this).attr("data-name");
   $(".cards").css("display", "none")        //will hide all of the cards
   $(".hidden").css("display","block")       //will show the recipe page
   recipePage(recipeValue);
-
 })
 
-})
-
+//Loads all recipe book items on page load
 createRecipeBook()
-
