@@ -41,6 +41,7 @@ function searchResults(ingredientSearch){ //creates cards dynamically references
       }
       //click for cards 
       $(".cards").on("click", ".card-div", function(){
+        
         $(".cards").css("display", "none") //all of the cards are hidden 
         $(".hidden").css("display","block") //.hidden div will be displayed
         var thisRecipeValue = $(this).attr("data-name") //always be equal to what was clicked
@@ -92,9 +93,44 @@ function recipePage(recipeValue) {
     
     var recipeTitle = response.meals[0].strMeal
     $("#recipe-title").text(recipeTitle)//recipe title
+
+    var ingredientArr = [];
+    var measureArr = [];
+    for(i=1; i<20;i++){
+      var ingredientStr = String('strIngredient'+i)
+      var measureStr = String('strMeasure'+i)
+      var newIngredient = response.meals[0]
+      JSON.stringify(newIngredient,function(key,value){
+        if (key == ingredientStr){
+          ingredientArr.push(value)
+        }else if(key == measureStr){
+          measureArr.push(value)
+        }
+      })
+      
+      var ingredient = newIngredient[ingredientStr]
+      ingredientArr.push(ingredient)
+      var measurement = newIngredient[measureStr]
+      measureArr.push(measurement)
+      
+    }
+    console.log("newIngredient" + JSON.stringify(newIngredient))
+    console.log("ingredients array: " + ingredientArr)
+    console.log("mesaurement arry: " + measureArr )
+    let myObj = {};
+    for (let i=0; i<ingredientArr.length;i++){
+      let key = ingredientArr[i];
+      let value = measureArr[i];
+      myObj[key] = value
+    }
+    var objstring = JSON.stringify(myObj).replace(/"/g,'').replace(/,/g,"\n")
+    var ingredient_lst = "ingredeints: \n " + objstring
+    console.log(ingredient_lst)
+
+
     
 
-    $(".ingredients").text("Ingredients: " + response.meals[0].strIngredient1 + ", " + response.meals[0].strIngredient2 + ", " + response.meals[0].strIngredient3 + ", " + response.meals[0].strIngredient4 + ", " + response.meals[0].strIngredient5 + ", " + response.meals[0].strIngredient6 + ", " + response.meals[0].strIngredient7 + ", " + response.meals[0].strIngredient8 + ", " + response.meals[0].strIngredient9 + ", " + response.meals[0].strIngredient10 ) //ingredients
+    $(".ingredients").text( ingredient_lst ) //ingredients
     
     $(".recipe").text(response.meals[0].strInstructions)//recipe
     $(".add-to-book").attr("data-name", recipeValue)
@@ -161,6 +197,13 @@ $(".randomRecipe").on("click", function(e){
 
    
   })
+})
+
+$(".recipe-book").on("click", ".recipeHistoryBtn" , function () {
+  var recipeValue = $(this).attr("data-name");
+  $(".cards").css("display", "none")        //will hide all of the cards
+  $(".hidden").css("display","block")       //will show the recipe page
+  recipePage(recipeValue);
 })
 
 createRecipeBook()
