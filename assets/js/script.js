@@ -132,4 +132,11 @@ $(".add-to-book").on("click", function(){
   addRecipe(recipeTitle, recipeValue)
 })
 
+// clear storage button
+$(".clear").on("click", function(){
+  localStorage.clear();
+ // remove buttons on click
+ $(".recipeHistoryBtn").removeAttr("style").hide();
+})
+
 createRecipeBook()
