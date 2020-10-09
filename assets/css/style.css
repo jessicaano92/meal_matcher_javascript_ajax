@@ -261,4 +261,8 @@ img{
         width: 100%;
     }
 
+    #recipe-title, .ingredientsTitle{
+        font-size: 24px;
+    }
+
 }
