@@ -31,6 +31,7 @@ img{
     font-weight: 100;
     margin-left: 10px;
     margin-top: 20px;
+    opacity: 1 !important;
 }
 
 #submit{
@@ -137,8 +138,12 @@ img{
     
     font-size: 20px;
     width: 84%;
+
+    margin-top: 30px;
+
     padding-top: 20px;
     font-weight: 300;
+
 
 }
 
@@ -160,10 +165,11 @@ img{
     border: none;
     background-color: #696969;
     height: 41px;
-    width: 99px;
+    width: auto;
     border-radius: 6%;
     color: white;
     font-weight: 700;
+    margin-top:17px;
 }
 
 .randomRecipe{
@@ -177,6 +183,9 @@ img{
     margin-left: 9px;
     padding: 10;
 }
+
+
+
 
 @media only screen and (max-width: 600px){
 #search{
@@ -231,6 +240,7 @@ img{
         padding: 0px 0px;
     }
 
+
     .recipe{
         font-size: 14px;
     width: 60%;
@@ -242,4 +252,5 @@ img{
     .ingredients{
         width: 80%;
     }
+
 }
