@@ -1,8 +1,10 @@
+/* Global Style */
 .header {
     padding: 20px 0px; 
     background-color: #9987b7;
     box-shadow: 0px 1px 4px #696969;
 }
+
 
 .h2, h2 {
     font-family: 'Lora', serif;
@@ -18,8 +20,12 @@ img{
     height: auto;
 }
 
+li{
+    font-size: 16px;
+}
+
+/* the search area where the input to search recipes, buttons and histroy*/
 .searchArea{
-    
     background-color: #eeeeee;
     padding-top: 20px;
     padding-bottom: 300px;
@@ -27,6 +33,18 @@ img{
     
 }
 
+/* The title "recipe Book" */
+.recipeBookTitle {
+    width: 90%;
+    font-size: 30px;
+    padding-top: 5px;
+    border-bottom: 5px solid #9987b7;
+    padding-bottom: 10px;
+    padding-top: 12px;
+    margin-left: 10px;
+}
+
+/* The input area to search recipes*/
 #search {
     border: none;
     width: 90%;
@@ -37,11 +55,12 @@ img{
     margin-left: 10px;
     margin-top: 20px;
     opacity: 1 !important;
+    background-color: white;
 }
 
+/* The submit button*/
 #submit{
     border: none;
-    /* width: 100%; */
     background: #9987b7;
     padding: 10px;
     color: white;
@@ -52,6 +71,20 @@ img{
     margin-left: 9px;
 }
 
+/* The clear storage and clear history buttons, button*/
+.clear {
+    border: none;
+    background-color: #696969;
+    height: 37px;
+    width: auto;
+    border-radius: 6%;
+    color: white;
+    font-weight: 700;
+    margin-top: 18px;
+    box-shadow: 0px 0px 3px #696969;
+}
+
+/* Meal Matcher Page title*/
 .pageTitle{
     color: white;
     font-size: 60px;
@@ -59,17 +92,7 @@ img{
     font-family: 'Cinzel', serif;
 }
 
-.recipeBookTitle {
-    width: 90%;
-    font-size: 30px;
-    /* font-weight: 400; */
-    padding-top: 5px;
-    border-bottom: 5px solid #9987b7;
-    padding-bottom: 10px;
-    padding-top: 12px;
-    margin-left: 10px;
-}
-
+/* The title of the recipe*/
 .recipe-title {
     font-size: 20px;
     font-weight: 400;
@@ -78,6 +101,13 @@ img{
     padding-bottom: 20px;
 }
 
+#recipe-title{
+    font-size: 42px ;
+    font-weight: 400;
+    border-bottom: 5px solid #9987b7;
+}
+
+/* The cards generated upon search*/
 .card-div {
     padding-bottom: 20px;
     box-shadow: 0px 0px 5px #c1c1c1;
@@ -103,34 +133,28 @@ img{
 
 .hidden {
     display: none;
+    padding-top: 27px;
 }
 
+/* The image generated with the recipe*/
 .recipe-image{
     border-radius: 3%;
     box-shadow: 0px 0px 5px #c1c1c1;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 75%;
+    width: 100%;
 }
 
+/* The ingredient List*/
 .ingredients{
- 
     font-family: 'Lora', serif;
-
     font-size: 18px;
     padding-top: 19px;
-    width: 94%;
-    padding-left: 49px;
-
+    width: 100%;
 }
 
-.recipe-title{
-    font-size: 22px;
-    font-weight: 400;
-    border-bottom: 5px solid #9987b7;
-}
-
+/* The buttons generated in the recipe book section */
 .recipeButton{
     font-size: 23px;
 }
@@ -142,19 +166,6 @@ img{
     color: white;
     padding: 0px 17px;
     margin-top: 11px;
-}
-
-.recipe {
-    
-    font-size: 20px;
-    width: 84%;
-
-    margin-top: 30px;
-
-    padding-top: 20px;
-    font-weight: 300;
-
-
 }
 
 .recipeHistoryBtn{
@@ -171,17 +182,16 @@ img{
    
 }
 
-.clear {
-    border: none;
-    background-color: #696969;
-    height: 41px;
-    width: auto;
-    border-radius: 6%;
-    color: white;
-    font-weight: 700;
-    margin-top:17px;
+/* The recipe section */
+.recipe {
+    font-size: 20px;
+    width: 100%;
+    margin-top: 30px;
+    padding-top: 20px;
+    font-weight: 300;
 }
 
+/* The random recipe button*/
 .randomRecipe{
     border: none;
     background-color: #696969;
@@ -192,23 +202,30 @@ img{
     font-weight: 600;
     margin-left: 9px;
     padding: 10;
+    box-shadow: 0px 0px 3px #696969;
 }
 
+/* The title of the ingredient list*/
+.ingredientTitle{
+    font-size: 32px;
+}
 
-
-
+/* The media query for small screens*/
 @media only screen and (max-width: 600px){
-#search{
-        border: none;
-    width: 95%;
-    padding-bottom: 12px;
-    padding: 6px 0px 7px 6px;
-    font-size: 24px;
-    font-weight: 100;
-    margin: 15px auto;
-    display: block;
-    }
 
+/*The search input field*/
+    #search{
+        border: none;
+        width: 95%;
+        padding-bottom: 12px;
+        padding: 6px 0px 7px 6px;
+        font-size: 24px;
+        font-weight: 100;
+        margin: 15px auto;
+        display: block;
+        }
+
+    /* The search Area*/
     .searchArea {
         background-color: #eeeeee;
         padding-top: 20px;
@@ -217,10 +234,12 @@ img{
         width: 100%;
     }
 
+    /*The submit button*/
     #submit{
         margin-left: 10px;
     }
 
+    /* The cards generated upon search*/
     .card-div{
         margin: 16px 0px !important;
     }
@@ -237,7 +256,7 @@ img{
     box-shadow: none;
     }
 
-    
+    /*The title of "Recipe Book"*/
     .recipeBookTitle{
         width: 95%;
     padding-left: 0%;
@@ -246,19 +265,26 @@ img{
     padding-bottom: 11px;
     }
 
+    /* global style*/
     .header{
         padding: 0px 0px;
     }
 
-
+    /* The recipe*/
     .recipe{
         font-size: 14px;
         width: 100%;
         padding-top: 20px;
     }
 
+    /*The Ingredients list*/
     .ingredients{
         width: 100%;
+    }
+
+    /*The random Recipe button*/
+    .randomRecipe{
+        margin-top: 10px;
     }
 
 }
