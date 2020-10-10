@@ -141,7 +141,7 @@ function recipePage(recipeValue) {
 
       //This is actually creating the ingredients on the web page
       $(".ingredients").empty();
-      var ingredientHeader = $("<h2>").text("Ingredients")
+      var ingredientHeader = $("<h2>").text("Ingredients").addClass("ingredientTitle")
       $(".ingredients").append(ingredientHeader)
       for (var i=0; i <newMealsArr[0].ingredients.length; i++){
       var listIngredient = $("<li>").text(newMealsArr[0].ingredients[i].ingredient + ", " + newMealsArr[0].ingredients[i].measure)
