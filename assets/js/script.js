@@ -20,8 +20,8 @@ function searchResults(ingredientSearch){ //creates cards dynamically references
 
     
           var carddiv= $("<div>"); //creating new div
-          carddiv.addClass("card-div "); //add class
-          carddiv.addClass("col-sm-12 col-md-12 col-lg-3") //add class
+          carddiv.addClass("card-div"); //add class
+          carddiv.addClass("z-depth-3 col-sm-12 col-md-12 col-lg-3") //add class
           carddiv.css("width", "18rem") //styling 
           if (i < 3){
           $(".top3").append(carddiv); //putting into HTML
@@ -166,7 +166,14 @@ $("#submit").on("click", function(e){
   searchResults(ingredientSearch)
   $(".cards").css("display", "block")        //will show all of the cards
   $(".hidden").css("display","none")       //will hide the recipe page
-})
+  $('.search').keypress(function(e){
+    if(e.which == 13){//Enter key pressed
+        $('.submit').click();
+        }
+      })
+    })
+
+  
 
 //Also allows the user to hit enter
 $('.search').keypress(function(e){
