@@ -2,7 +2,6 @@
 .header {
     padding: 20px 0px; 
     background-color: #9987b7;
-    box-shadow: 0px 1px 4px #696969;
 }
 
 
@@ -22,6 +21,7 @@ img{
 
 li{
     font-size: 16px;
+     
 }
 
 /* the search area where the input to search recipes, buttons and histroy*/
@@ -29,9 +29,7 @@ li{
     background-color: #eeeeee;
     padding-top: 20px;
     padding-bottom: 300px;
-    box-shadow: 0px 0px 5px #c1c1c1;
-    
-}
+    }
 
 /* The title "recipe Book" */
 .recipeBookTitle {
@@ -109,11 +107,10 @@ li{
 
 /* The cards generated upon search*/
 .card-div {
-    padding-bottom: 20px;
-    box-shadow: 0px 0px 5px #c1c1c1;
     margin: 0px 20px;
-    border-radius: 2%;
-    
+    border-radius: 3%;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 .cards{
@@ -126,9 +123,7 @@ li{
 }
 
 .card-img-top {
-    
-    border-radius: 8%;
-    padding: 17px;
+    border-radius: 3%;
 }
 
 .hidden {
@@ -210,6 +205,11 @@ li{
     font-size: 32px;
 }
 
+button:focus {
+    outline: none;
+    background-color: #696969 !important;
+}
+
 /* The media query for small screens*/
 @media only screen and (max-width: 600px){
 
@@ -245,15 +245,12 @@ li{
     }
 
     .card-img-top{
-        width: 92%;
-    display: block;
-    margin: 0 auto;
-    width: 92%;
-    display: block;
-    margin: 0 auto;
-    /* height: 37%; */
-    padding-top: 15px;
-    box-shadow: none;
+        
+        display: block;
+        margin: 0 auto;
+        display: block;
+        margin: 0 auto;
+        box-shadow: none;
     }
 
     /*The title of "Recipe Book"*/
