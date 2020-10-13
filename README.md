@@ -24,4 +24,4 @@ GitHub Repository: https://github.com/jessicaano92/meal_matcher_javascript_ajax
 Meal Matcher Live Website: https://jessicaano92.github.io/meal_matcher_javascript_ajax/
 
 
-<img src = "assets/images/readme1.png">
+<img src = "./assets/images/readMe1.png">
