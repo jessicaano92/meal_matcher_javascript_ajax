@@ -9,13 +9,19 @@ Don't know what you're hungry for, thats okay, with Meal Matcher you can even fi
 Meal Matcher...have an ingredient? Make a meal.
 
 
-When presented with the prompt for this homework, group five went right to work and searched some of their favorite topics. When sports and music didn't seem to have any good options we resorted to our favorite thing in the world..food. We found the MealDB API using RapidAPI. 
+When presented with the prompt for this application, group five went right to work and searched some of their favorite topics. When sports and music didn't seem to have any good options we resorted to our favorite thing in the world..food. We found the MealDB API using RapidAPI. 
 
 From this we built a wireframe design using wireframe.io and spent time psuedocoding. After building our MVP during this process we were ready to start building. We worked with Jquery, html, css, bootstrap, and materialize to build our website. 
 
 Overall, we are very satisfied with this final product and along the way we learned a lot. Some of the more challenging aspects of the project was coordinating code on different systems through github and searching for viable API's.
 
 We would like to thank our professor and TA's for guiding us along the way.
+
+## Installation
+npm i
+
+## Technology Used
+HTML, CSS, JavaScript, Materialize
 
 API used: https://www.themealdb.com/
 
